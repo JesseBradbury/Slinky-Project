@@ -1,0 +1,1 @@
+-- This will be the setup of our slinky db
