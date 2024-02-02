@@ -17,7 +17,11 @@ As a user I want to be able to create an account or sign in. Then they will be a
 
 **Wireframe:** 
 
-![[Screen Shot 2024-02-01 at 7.16.41 PM.png]]
+[Handle Bars Outline](assets/wireframe/wf1.png)
+[HomePage Outline](assets/wireframe/wf2.png)
+[Places Outline](assets/wireframe/wf3.png)
+[Profile Outline](assets/wireframe/wf4.png)
+
 **Additional Technology to be used:** 
 GSAP NPM app. 
 
