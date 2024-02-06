@@ -36,4 +36,4 @@ Post.init(
   }
 );
 
-module.experts = Post;
+module.exports = Post;
