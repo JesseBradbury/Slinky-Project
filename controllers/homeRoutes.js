@@ -78,4 +78,36 @@ router.get('/spots', async (req, res) => {
       res.status(500).json(err);
   }
 });
+
+router.get('/spots/:id', async (req, res) => {
+  try {
+    const spotId = req.params.id;
+
+      const dbSpotData = await Spot.findByPk(spotId, {
+        include: [
+          {
+            model: User,
+            attributes: ['id', 'user_name'],
+          },
+        ],
+      });
+
+      if (!dbSpotData) {
+        res.status(404).json({ error: 'Spot not found' });
+        return;
+    }
+
+    const spot = {
+      ...dbSpotData.get({ plain: true }),
+      user: dbSpotData.User.get({ plain: true }),
+    };
+
+      res.render('spotDetails', { spot });
+
+  } catch (err) {
+      res.status(500).json({ error: 'Internal Server Error' });
+      console.log(err)
+  }
+});
+
 module.exports = router
