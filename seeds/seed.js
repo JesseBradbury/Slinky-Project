@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+// This will use sequilize to seed our db with basic info for testing.
+=======
 // This will use sequilize to seed our db with basic info for testing. 
 
 const sequelize = require('../config/connection');
@@ -17,3 +20,4 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
+>>>>>>> 66e425a3ee9292259a1fa462d16ba553cc314584
