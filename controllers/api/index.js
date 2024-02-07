@@ -7,7 +7,7 @@ const spotRoutes = require('./spotRoutes');
 const waveRoutes = require('./waveRoutes')
 
 router.use('/users', userRoutes);
-// router.use('/spots', spotRoutes);
-// router.use('/waves', waveRoutes);
+router.use('/spots', spotRoutes);
+router.use('/waves', waveRoutes);
 
 module.exports = router;
