@@ -3,7 +3,7 @@ const { Wave, Spot, User} = require('../../models');
 
 router.post('/', async (req,res) => {
     try {
-        const waveData = await Spot.create({
+        const waveData = await Wave.create({
             spot_id: req.body.spot_id,
             steps: req.body.steps,
             time: req.body.time,
@@ -14,6 +14,31 @@ router.post('/', async (req,res) => {
     } catch (err) {
         res.status(400).json(err);
         console.log(err);
+    }
+});
+
+router.get('/', async (req, res) => {
+    try {
+        const dbWaveData = await Wave.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'user_name'],
+                },
+            ],
+        });
+
+        const waves = dbWaveData.map((wave) => wave.get({ plain: true })
+        );
+        res.json(waves);
+        // res.render('places', {
+        //     spots,
+        //     loggedIn: req.session.loggedIn,
+        // });
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 

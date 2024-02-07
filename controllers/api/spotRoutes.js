@@ -33,11 +33,11 @@ router.get('/', async (req, res) => {
 
         const spots = dbSpotData.map((spot) => spot.get({ plain: true })
         );
-
-        res.render('places', {
-            spots,
-            loggedIn: req.session.loggedIn,
-        });
+        res.json(spots);
+        // res.render('places', {
+        //     spots,
+        //     loggedIn: req.session.loggedIn,
+        // });
 
     } catch (err) {
         console.log(err);
@@ -61,7 +61,7 @@ router.get('/:id', async (req, res) => {
 
             const spots = dbSpotData.map((spot) => spot.get({ plain: true })
             );
-
+            res.json(spots);
             res.render('places', {
                 spots,
                 loggedIn: req.session.loggedIn,

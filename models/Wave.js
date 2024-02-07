@@ -5,11 +5,19 @@ class Wave extends Model{}
 
 Wave.init(
     {
-      spot_id: {
+      id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,        
+        autoIncrement: true
+      },
+      spot_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "spot",
+          key: "id"
+        }       
     },  
     steps: {
         type: DataTypes.STRING,
