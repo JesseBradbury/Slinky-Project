@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const { User } = require("../models")
+const { User, Spot } = require("../models")
 const withAuth = require("../utils/auth")
 // TODO: Add the withAuth util from example.
 
@@ -54,4 +54,28 @@ router.get("/search", withAuth, (req, res) => {
   res.render("search")
 })
 
+router.get('/spots', async (req, res) => {
+  try {
+      const dbSpotData = await Spot.findAll({
+          include: [
+              {
+                  model: User,
+                  attributes: ['id', 'user_name'],
+              },
+          ],
+      });
+
+      const spots = dbSpotData.map((spot) => spot.get({ plain: true })
+      );
+     
+      res.render('spots', {
+          spots,
+          // loggedIn: req.session.loggedIn,
+      });
+
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
 module.exports = router
