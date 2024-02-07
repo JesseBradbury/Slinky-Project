@@ -5,19 +5,23 @@ class Wave extends Model{}
 
 Wave.init(
     {
-      id: {
+      spot_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,        
     },  
-    title: {
+    steps: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    content: {
+    time: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    comment: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -32,7 +36,7 @@ Wave.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'wave',
   }
 );
 
