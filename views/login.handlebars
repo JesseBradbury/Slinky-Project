@@ -1,18 +1,22 @@
 {{!-- This will be the handlebars page for the login screen --}}
 <div class="container">
     <h2>Login</h2>
-    <form action="/login" method="POST">
+    <form class="form login-form">
         <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="username-login">Username:</label>
+            <input class="form-input" type="text" id="username-login" />
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <label for="password-login">Password:</label>
+            <input class="form-input" type="password" id="password-login" />
         </div>
-        <button type="submit">Login</button>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
     </form>
     {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
     {{/if}}
+    <li><a href="/signup">New? Sign Up Here!</a></li>
 </div>
+<script src="/js/login.js"></script>
