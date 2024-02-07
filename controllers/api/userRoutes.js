@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 // This is the route that checks the user sign in email and password with the user table in the slinkyworld_db. 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { email: req.body.email } });
+        const userData = await User.findOne({ where: { user_name: req.body.username } });
 
         if (!userData) {
             res
