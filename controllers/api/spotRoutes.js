@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { Spot, User } = require('../../models');
+const { Spot, Wave, User } = require('../../models');
 
-router.post('/', async (req,res) => {
+router.post('/', async (req, res) => {
     try {
         const spotData = await Spot.create({
             spot_name: req.body.spot_name,
@@ -19,7 +19,8 @@ router.post('/', async (req,res) => {
     }
 });
 
-router.get('/', async (req,res) => {
+// get all spots
+router.get('/', async (req, res) => {
     try {
         const dbSpotData = await Spot.findAll({
             include: [
@@ -30,11 +31,49 @@ router.get('/', async (req,res) => {
             ],
         });
 
-        const spots = dbSpotData.map((spot) => {
-            
-        })
+        const spots = dbSpotData.map((spot) => spot.get({ plain: true })
+        );
 
-    } catch {
+        res.render('places', {
+            spots,
+            loggedIn: req.session.loggedIn,
+        });
 
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
-})
+});
+
+router.get('/:id', async (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    } else {
+        try {
+            const dbSpotData = await Spot.findByPk(req.params.id, {
+                include: [
+                    {
+                        model: User, Wave,
+                        attributes: ['id', 'user_name', 'spot_id'],
+                    },
+                ],
+            });
+
+            const spots = dbSpotData.map((spot) => spot.get({ plain: true })
+            );
+
+            res.render('places', {
+                spots,
+                loggedIn: req.session.loggedIn,
+            });
+
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    }
+});
+
+// get one spot, requires sign in
+
+module.exports = router;
