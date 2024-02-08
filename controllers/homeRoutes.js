@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const { User, Spot } = require("../models")
+const { User, Spot, Wave } = require("../models")
 const withAuth = require("../utils/auth")
 // TODO: Add the withAuth util from example.
 
@@ -56,26 +56,26 @@ router.get("/search", withAuth, (req, res) => {
 
 router.get('/spots', async (req, res) => {
   try {
-      const dbSpotData = await Spot.findAll({
-          include: [
-              {
-                  model: User,
-                  attributes: ['id', 'user_name'],
-              },
-          ],
-      });
+    const dbSpotData = await Spot.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'user_name'],
+        },
+      ],
+    });
 
-      const spots = dbSpotData.map((spot) => spot.get({ plain: true })
-      );
-     
-      res.render('spots', {
-          spots,
-          // loggedIn: req.session.loggedIn,
-      });
+    const spots = dbSpotData.map((spot) => spot.get({ plain: true })
+    );
+
+    res.render('spots', {
+      spots,
+      // loggedIn: req.session.loggedIn,
+    });
 
   } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
@@ -83,30 +83,47 @@ router.get('/spots/:id', async (req, res) => {
   try {
     const spotId = req.params.id;
 
-      const dbSpotData = await Spot.findByPk(spotId, {
-        include: [
-          {
-            model: User,
-            attributes: ['id', 'user_name'],
-          },
-        ],
-      });
+    const dbSpotData = await Spot.findByPk(spotId, {
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'user_name'],
+        },
+        {
+          model: Wave,
+          attributes: ['id','spot_id', 'steps', 'time', 'comment'],
+          include: [
+            {
+              model: User,
+              attributes: ['id', 'user_name'],
+            },
+          ]
+        }
+      ],
+    });
 
-      if (!dbSpotData) {
-        res.status(404).json({ error: 'Spot not found' });
-        return;
+    if (!dbSpotData) {
+      res.status(404).json({ error: 'Spot not found' });
+      return;
     }
+
+    console.log('dbSpotData:', dbSpotData);
 
     const spot = {
       ...dbSpotData.get({ plain: true }),
       user: dbSpotData.User.get({ plain: true }),
+      waves: dbSpotData.Waves ? dbSpotData.Waves.map((wave) => wave.get({ plain: true })) : [],
+      // waves: dbSpotData.Waves.get({ plain: true }),
+      // waves: dbSpotData.Waves.map((wave) => wave.get({ plain: true})),
     };
 
-      res.render('spotDetails', { spot });
+    console.log('spot:', spot);
+
+    res.render('spotDetails', { spot });
 
   } catch (err) {
-      res.status(500).json({ error: 'Internal Server Error' });
-      console.log(err)
+    res.status(500).json({ error: 'Internal Server Error' });
+    console.log(err)
   }
 });
 

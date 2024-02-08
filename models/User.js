@@ -51,6 +51,5 @@ User.init(
   }
 )
 
-// 24 hours timer
 
 module.exports = User

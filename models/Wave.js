@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize")
 const sequelize = require("../config/connection")
+const Spot = require('./Spot');
 
 class Wave extends Model{}
 
@@ -47,5 +48,9 @@ Wave.init(
     modelName: 'wave',
   }
 )
+
+Wave.belongsTo(Spot, {
+  foreignKey: 'spot_id',
+})
 
 module.exports = Wave;
