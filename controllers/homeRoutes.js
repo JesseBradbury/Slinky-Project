@@ -91,7 +91,7 @@ router.get('/spots/:id', async (req, res) => {
         },
         {
           model: Wave,
-          attributes: ['id','spot_id', 'steps', 'time', 'comment'],
+          attributes: ['id', 'steps', 'time', 'comment'],
           include: [
             {
               model: User,
