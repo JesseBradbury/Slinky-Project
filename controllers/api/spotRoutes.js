@@ -33,11 +33,11 @@ router.get('/', async (req, res) => {
 
         const spots = dbSpotData.map((spot) => spot.get({ plain: true })
         );
-
-        res.render('places', {
-            spots,
-            loggedIn: req.session.loggedIn,
-        });
+        res.json(spots);
+        // res.render('spots', {
+        //     spots,
+        //     loggedIn: req.session.loggedIn,
+        // });
 
     } catch (err) {
         console.log(err);
@@ -45,35 +45,69 @@ router.get('/', async (req, res) => {
     }
 });
 
+// router.get('/:id', async (req, res) => {
+    
+//         try {
+//             const dbSpotData = await Spot.findByPk(req.params.id, {
+//                 include: [
+//                     {
+//                         model: User, Wave,
+//                         attributes: ['id', 'user_name', 'spot_id'],
+//                     },
+//                 ],
+//             });
+
+//             const spots = dbSpotData.map((spot) => spot.get({ plain: true })
+//             );
+//             res.json(spots);
+//             res.render('places', {
+//                 spots,
+//                 loggedIn: req.session.loggedIn,
+//             });
+
+//         } catch (err) {
+//             console.log(err);
+//             res.status(500).json(err);
+//         }
+//     }
+// );
+
 router.get('/:id', async (req, res) => {
-    if (!req.session.loggedIn) {
-        res.redirect('/login');
-    } else {
-        try {
-            const dbSpotData = await Spot.findByPk(req.params.id, {
-                include: [
-                    {
-                        model: User, Wave,
-                        attributes: ['id', 'user_name', 'spot_id'],
-                    },
-                ],
-            });
+    try {
+        const dbSpotData = await Spot.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'user_name'],
+                },
+                {
+                    model: Wave,
+                    attributes: ['id', 'steps', 'time', 'comment'],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['id', 'user_name'],
+                        },
+                    ],
+                },
+            ],
+        });
 
-            const spots = dbSpotData.map((spot) => spot.get({ plain: true })
-            );
-
-            res.render('places', {
-                spots,
-                loggedIn: req.session.loggedIn,
-            });
-
-        } catch (err) {
-            console.log(err);
-            res.status(500).json(err);
+        if (!dbSpotData) {
+            res.status(404).json({ error: 'Spot not found' });
+            return;
         }
+
+        const spot = dbSpotData.get({ plain: true });
+
+        // res.render('spotDetails', { spot, loggedIn: req.session.loggedIn });
+        res.json(spot);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
 });
-
 // get one spot, requires sign in
 
 module.exports = router;
