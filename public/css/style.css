@@ -1,0 +1,142 @@
+/* This root could be used for a color pallete. */
+:root {
+    --primary: #3d5852;
+    --secondary: #86938f;
+    --tertiary: #5e877f;
+    --quatrinary: #6c6b67;
+    --light: #e3e4e3;
+    --dark: #182c23;
+    --error: rgb(228, 46, 1);
+    --border-radius: 0.3rem;
+}
+
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #F2F5EA;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F2F5EA;
+    border: 1px solid #E75A7C;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+h1,
+h2,
+h3 {
+    margin-left: 10px;
+    color: #32373B;
+}
+
+
+
+/* Header styles */
+.header {
+    background-color: #F77F00;
+    color: #F2F5EA;
+    /* text color */
+    padding: 0px;
+    text-align: center;
+}
+
+/* Navigation styles */
+
+/* Set padding on navbar */
+.navbar {
+    padding: 4px;
+    display: block;
+    background-color: #F77F00;
+    list-style: none;
+}
+
+/* Style navbar brand */
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #32373B;
+    margin-left: 20px;
+    margin-right: 50px;
+    list-style: none;
+    padding: 30px;
+}
+
+
+
+/* Style navbar links */
+.navbar-nav .nav-item .nav-link {
+    color: #32373B;
+    /* Change color of links */
+    font-size: 18px;
+    /* Change font size of links */
+    margin-right: 50px;
+
+
+    font-weight: bold;
+    display: flex;
+    /* Use flexbox */
+    justify-content: flex-end;
+    /* Align nav-items to the right */
+    align-items: center;
+    /* Align items vertically */
+    list-style: none;
+
+}
+
+.navbar-nav .nav-item a {
+    list-style-type: none;
+
+}
+
+
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #E75A7C;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+button[type="submit"] {
+    background-color: #32373B;
+    /*  button color */
+    color: #F2F5EA;
+    /*  button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #F77F00;
+    /* hover button color */
+}
+
+.error {
+    color: red;
+}
