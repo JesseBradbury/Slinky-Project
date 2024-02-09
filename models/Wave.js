@@ -2,31 +2,31 @@ const { Model, DataTypes } = require("sequelize")
 const sequelize = require("../config/connection")
 const Spot = require('./Spot');
 
-class Wave extends Model{}
+class Wave extends Model { }
 
 Wave.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
-      },
-      spot_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: "spot",
-          key: "id"
-        }       
-    },  
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    spot_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "spot",
+        key: "id"
+      }
+    },
     steps: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     time: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     comment: {
       type: DataTypes.STRING,
@@ -49,8 +49,8 @@ Wave.init(
   }
 )
 
-Wave.belongsTo(Spot, {
-  foreignKey: 'spot_id',
-})
+// Wave.belongsTo(Spot, {
+//   foreignKey: 'spot_id',
+// })
 
 module.exports = Wave;

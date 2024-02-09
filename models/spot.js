@@ -56,12 +56,12 @@ Spot.init(
 
 module.exports = Spot;
 
-const Wave = require('./Wave');
+// const Wave = require('./Wave');
 
-Spot.hasMany(Wave, {
-    foreignKey: 'spot_id',
-    onDelete: 'CASCADE',
-});
+// Spot.hasMany(Wave, {
+//     foreignKey: 'spot_id',
+//     onDelete: 'CASCADE',
+// });
 // Spot.belongsTo(User, {
 //     foreignKey: 'user_id',
 // })
