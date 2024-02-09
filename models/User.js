@@ -47,7 +47,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    // maodelName: "User"
+    // modelName: "user"
   }
 )
 
