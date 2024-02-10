@@ -1,1 +1,36 @@
 <h2 class="homepageH2">The World Of Slinky</h2>
+
+
+<div id="user-posts-container"></div>
+
+<script>
+    // Function to fetch user posts and render them on the homepage
+    function fetchUserPosts() {
+        // Make an AJAX request to fetch the user's posts
+        $.ajax({
+            url: '/Users/emilykline/bootcamp/homework/Slinky-Project/controllers/api/spotRoutes.js',
+            method: 'GET',
+            success: function (response) {
+                // Assuming response is an array of user posts
+                response.forEach(function (post) {
+                    // Render each post and append it to the container
+                    $('#user-posts-container').append(`
+            <div>
+              <h3>${post.spot_name}</h3>
+              <p>Steps: ${post.steps}</p>
+              <p>Description: ${post.description}</p>
+            </div>
+          `);
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching user posts:', error);
+            }
+        });
+    }
+
+    // Call the fetchUserPosts function when the page loads
+    $(document).ready(function () {
+        fetchUserPosts();
+    });
+</script>
