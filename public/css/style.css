@@ -198,3 +198,62 @@ button[type="submit"]:hover {
 .spot-form button[type="submit"]:hover {
     background-color: var(--quatrinary);
 }
+
+/*spot detail styles*/
+.spotDetails-form {
+    max-width: 1000px;
+    /* Set maximum width for the form */
+    margin: 0 auto;
+    /* Center the form horizontally */
+    padding: 20px;
+    /* Add padding for spacing */
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    background-color: var(--light);
+}
+
+
+
+.wavesh2 {
+    margin: 0 0 20px 40%;
+    /* Add margin to separate from form */
+    color: var(--primary);
+    /* Adjust text color */
+}
+
+.waveDetail-p {
+    margin-left: 45%
+}
+
+.noWave-p {
+    margin-left: 35%
+}
+
+.addWaveh3 {
+    margin-left: 66px
+}
+
+
+
+
+.spot-form input[type="text"] {
+    width: calc(100% - 22px);
+    /* Adjust width to account for padding and border */
+    padding: 10px;
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.spot-form button[type="submit"] {
+    background-color: var(--primary);
+    color: var(--light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.spot-form button[type="submit"]:hover {
+    background-color: var(--quatrinary);
+}
