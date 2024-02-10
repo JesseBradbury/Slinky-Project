@@ -73,7 +73,10 @@ h3 {
     padding: 30px;
 }
 
-
+.nav-brand-logo {
+    margin-left: -3%;
+    margin-top: 10px;
+}
 
 /* Style navbar links */
 .navbar-nav .nav-item .nav-link {
@@ -93,6 +96,10 @@ h3 {
     /* Align items vertically */
     list-style: none;
 
+}
+
+.navbar-nav {
+    margin-left: 10%;
 }
 
 .navbar-nav .nav-item a {
@@ -261,6 +268,6 @@ button[type="submit"]:hover {
     background-color: var(--quatrinary);
 }
 
-.map {
-    margin-left: 45%;
+.homepageH2 {
+    margin-left: 43%;
 }
