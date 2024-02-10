@@ -203,7 +203,7 @@ button[type="submit"]:hover {
 .spotDetails-form {
     max-width: 1000px;
     /* Set maximum width for the form */
-    margin: 0 auto;
+    margin-left: 15%;
     /* Center the form horizontally */
     padding: 20px;
     /* Add padding for spacing */
@@ -215,26 +215,29 @@ button[type="submit"]:hover {
 
 
 .wavesh2 {
-    margin: 0 0 20px 40%;
+    margin-left: 40%;
     /* Add margin to separate from form */
     color: var(--primary);
     /* Adjust text color */
 }
 
 .waveDetail-p {
-    margin-left: 45%
+    margin-left: 36%;
+    color: var(--primary)
 }
 
 .noWave-p {
-    margin-left: 35%
+    margin-left: 35%;
 }
 
 .addWaveh3 {
-    margin-left: 66px
+    margin-left: 0%;
 }
 
 
-
+.spotNameh1 {
+    margin-left: 0%;
+}
 
 .spot-form input[type="text"] {
     width: calc(100% - 22px);
@@ -256,4 +259,8 @@ button[type="submit"]:hover {
 
 .spot-form button[type="submit"]:hover {
     background-color: var(--quatrinary);
+}
+
+.map {
+    margin-left: 45%;
 }

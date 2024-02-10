@@ -1,5 +1,5 @@
 <div class="spotDetails-form">
-    <h1>{{ spot.spot_name }}</h1>
+    <h1 class="spotNameh1">{{ spot.spot_name }}</h1>
     <p>Steps: {{ spot.steps }}</p>
     <p>City: {{ spot.city }}</p>
     <p>State: {{ spot.state }}</p>
@@ -11,21 +11,13 @@
         {{#if spot.waves.length}}
         <ul>
             {{#each spot.waves}}
-<<<<<<< HEAD
-            <div class="spotDetail-p">
+            <div class="waveDetail-p">
                 <li>
                     <p>Steps: {{ steps }} - Time: {{ time }}</p>
                     <p>Comment: {{ comment }}</p>
                     <p>User: - {{ user.user_name }}</p>
                 </li>
             </div>
-=======
-            <li>
-                <p>Steps: {{ steps }} - Time: {{ time }}</p>
-                <p>Comment: {{ comment }}</p>
-                <p>User: - {{ User.user_name }}</p>
-            </li>
->>>>>>> 51951b68c4ce74abfe95cfcbc38309254d6605ce
             {{/each}}
         </ul>
         {{else}}
