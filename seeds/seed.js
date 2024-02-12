@@ -5,11 +5,21 @@ const sequelize = require('../config/connection');
 const { User } = require('../models');
 
 const userData = require('./userData.json');
+const spotData = require('./spotData.json');
+const waveData = require('./waveData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
     await User.bulkCreate(userData, {
+        individualHooks: true,
+        returning: true,
+    });
+    await Spot.bulkCreate(spotData, {
+        individualHooks: true,
+        returning: true,
+    });
+    await Wave.bulkCreate(waveData, {
         individualHooks: true,
         returning: true,
     });
