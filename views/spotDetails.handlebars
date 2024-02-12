@@ -1,7 +1,9 @@
 <div>
     <div id="map">
         </div>
-    <h1>{{ spot.spot_name }}</h1>
+    
+<div class="spotDetails-form">
+    <h1 class="spotNameh1">{{ spot.spot_name }}</h1>
     <p>Steps: {{ spot.steps }}</p>
     <p>City: {{ spot.city }}</p>
     <p>State: {{ spot.state }}</p>
@@ -9,23 +11,27 @@
     <p>Description: {{ spot.description }}</p>
 
     <div>
-        <h2>WAVES</h2>
+        <h2 class="wavesh2">WAVES</h2>
         {{#if spot.waves.length}}
         <ul>
             {{#each spot.waves}}
-            <li>
-                <p>Steps: {{ steps }} - Time: {{ time }}</p>
-                <p>Comment: {{ comment }}</p>
-                <p>User: - {{ User.user_name }}</p>
-            </li>
+            <div class="waveDetail-p">
+                <li>
+                    <p>Steps: {{ steps }} - Time: {{ time }}</p>
+                    <p>Comment: {{ comment }}</p>
+                    <p>User: - {{ user.user_name }}</p>
+                </li>
+            </div>
             {{/each}}
         </ul>
         {{else}}
+        <div class="noWave-p">
             <p>No waves yet! Record your own!</p>
-            {{/if}}
+        </div>
+        {{/if}}
     </div>
     <div>
-        <h3>Add Your Wave!</h3>
+        <h3 class="addWaveh3">Add Your Wave!</h3>
         <form class="form wave-form">
             <div class="form-group">
                 <label for="wavesteps-create">Steps:</label>
