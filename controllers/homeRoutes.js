@@ -105,7 +105,12 @@ router.get('/spots', async (req, res) => {
   }
 });
 
-router.get('/spots/:id', async (req, res) => {
+router.get('/spots/:id', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login")
+    return
+  }
+
   try {
     const spotId = req.params.id;
 
@@ -151,9 +156,14 @@ router.get('/spots/:id', async (req, res) => {
   }
 });
 
-router.get('/createspot', async (req, res) => {
-  try{
-  res.render('spotCreate')
+router.get('/createspot', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login")
+    return
+  }
+
+  try {
+    res.render('spotCreate')
   } catch (err) {
     res.status(500).json({ error: 'Internal Server Error' });
     console.log(err)

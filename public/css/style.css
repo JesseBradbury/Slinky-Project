@@ -2,7 +2,8 @@
 :root {
     --primary: #32373B;
     --secondary: #6A8D73;
-    --tertiary: #D7F5CC;
+    /* --tertiary: #D7F5CC; */
+    --tertiary: #7c7d70;
     --quatrinary: #F77F00;
     --light: #F2F5EA;
     --dark: #182c23;
@@ -23,8 +24,18 @@ body {
     line-height: 1.6;
     background-color: var(white);
 }
+/* container is a class used my Bootstrap, so we need to let its default margin and padding apply. I renaced the styling on this as .card and fixed some of the classes where it is required.  */
+/* .container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--light);
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    margin-top: 20px;
+} */
 
-.container {
+.card {
     width: 50%;
     margin: 0 auto;
     padding: 20px;
@@ -37,7 +48,7 @@ body {
 h1,
 h2,
 h3 {
-    margin-left: 15px;
+    margin-left: 5px;
 
 }
 
@@ -276,3 +287,29 @@ button[type="submit"]:hover {
 .homepageH2 {
     margin-left: 43%;
 }
+
+.card-spot {
+    width: calc(100% - 22px);
+    /* Adjust width to account for padding and border */
+    padding: 10px;
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    /*  button color */
+    color: var(--light);
+    /*  button text color */
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background-color: var(--quatrinary);
+    /* hover button color */
+}
+
