@@ -35,14 +35,40 @@ router.get("/signup", (req, res) => {
 })
 
 // This will be the router for the users profile.
-router.get("/profile", withAuth, (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/login")
     return
   }
+  const userId = req.session.user_id;
+  console.log(userId);
+  try {
+    const userData = await User.findByPk(userId, {
+      include: [
+        {
+          model: Spot,
+          attributes: ['id', 'spot_name', 'steps'],
+        },
+      ],
+    });
 
-  res.render("profile")
-})
+    if (!userData) {
+      res.status(404).json({ error: 'User not found' });
+      return;
+    }
+
+    // const userData = dbUserData.map((userData) => userData.get({ plain: true })
+    // );
+
+
+    console.log(userData);
+    res.render("profile", { userData });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 // should we have a route that allows people to search for locations?
 router.get("/search", withAuth, (req, res) => {
@@ -79,7 +105,12 @@ router.get('/spots', async (req, res) => {
   }
 });
 
-router.get('/spots/:id', async (req, res) => {
+router.get('/spots/:id', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login")
+    return
+  }
+
   try {
     const spotId = req.params.id;
 
@@ -124,5 +155,19 @@ router.get('/spots/:id', async (req, res) => {
     console.log(err)
   }
 });
+
+router.get('/createspot', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login")
+    return
+  }
+
+  try {
+    res.render('spotCreate')
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+    console.log(err)
+  }
+})
 
 module.exports = router

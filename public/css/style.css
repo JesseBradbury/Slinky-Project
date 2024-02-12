@@ -2,13 +2,16 @@
 :root {
     --primary: #32373B;
     --secondary: #6A8D73;
-    --tertiary: #D7F5CC;
+    /* --tertiary: #D7F5CC; */
+    --tertiary: #7c7d70;
     --quatrinary: #F77F00;
     --light: #F2F5EA;
     --dark: #182c23;
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
 }
+
+@import url('https://fonts.cdnfonts.com/css/bauhaus-modern');
 
 /* Resetting default margin and padding */
 * {
@@ -19,12 +22,13 @@
 
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Quicksand", Arial, sans-serif;
     line-height: 1.6;
-    background-color: var(--light);
+    background-color: var(white);
 }
 
-.container {
+/* container is a class used my Bootstrap, so we need to let its default margin and padding apply. I renaced the styling on this as .card and fixed some of the classes where it is required.  */
+/* .container {
     width: 50%;
     margin: 0 auto;
     padding: 20px;
@@ -32,12 +36,24 @@ body {
     border: 1px solid var(--tertiary);
     border-radius: 5px;
     margin-top: 20px;
+} */
+
+.card {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--light);
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h1,
 h2,
 h3 {
-    margin-left: 15px;
+    margin-left: 5px;
+    font-family: 'Bauhaus Modern', sans-serif;
 
 }
 
@@ -50,6 +66,7 @@ h3 {
     /* text color */
     padding: 0px;
     text-align: center;
+    font-family: 'Bauhaus Modern', sans-serif;
 }
 
 /* Navigation styles */
@@ -64,13 +81,13 @@ h3 {
 
 /* Style navbar brand */
 .navbar-brand {
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
     color: var(--primary);
     margin-left: 20px;
     margin-right: 50px;
     list-style: none;
-    padding: 30px;
+    padding: 5px;
 }
 
 .nav-brand-logo {
@@ -110,9 +127,9 @@ h3 {
 
 /* slinky dog image */
 
-.slinkyDogimage {
+/* .slinkyDogimage {
     margin-left: 40%;
-}
+} */
 
 /* Form styles */
 .form-group {
@@ -274,5 +291,45 @@ button[type="submit"]:hover {
 }
 
 .homepageH2 {
-    margin-left: 43%;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    /* align-content: center; */
+}
+
+.card-spot {
+    width: calc(100% - 22px);
+    /* Adjust width to account for padding and border */
+    padding: 10px;
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    /*  button color */
+    color: var(--light);
+    /*  button text color */
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--quatrinary);
+    /* hover button color */
+}
+
+.btn-signup {
+    width: 150px;
+}
+
+.logo-home {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
