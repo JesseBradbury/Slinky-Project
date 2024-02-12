@@ -73,7 +73,10 @@ h3 {
     padding: 30px;
 }
 
-
+.nav-brand-logo {
+    margin-left: -3%;
+    margin-top: 10px;
+}
 
 /* Style navbar links */
 .navbar-nav .nav-item .nav-link {
@@ -95,12 +98,21 @@ h3 {
 
 }
 
+.navbar-nav {
+    margin-left: 10%;
+}
+
 .navbar-nav .nav-item a {
     list-style-type: none;
 
 }
 
 
+/* slinky dog image */
+
+.slinkyDogimage {
+    margin-left: 40%;
+}
 
 /* Form styles */
 .form-group {
@@ -197,4 +209,70 @@ button[type="submit"]:hover {
 
 .spot-form button[type="submit"]:hover {
     background-color: var(--quatrinary);
+}
+
+/*spot detail styles*/
+.spotDetails-form {
+    max-width: 1000px;
+    /* Set maximum width for the form */
+    margin-left: 15%;
+    /* Center the form horizontally */
+    padding: 20px;
+    /* Add padding for spacing */
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    background-color: var(--light);
+}
+
+
+
+.wavesh2 {
+    margin-left: 40%;
+    /* Add margin to separate from form */
+    color: var(--primary);
+    /* Adjust text color */
+}
+
+.waveDetail-p {
+    margin-left: 36%;
+    color: var(--primary)
+}
+
+.noWave-p {
+    margin-left: 35%;
+}
+
+.addWaveh3 {
+    margin-left: 0%;
+}
+
+
+.spotNameh1 {
+    margin-left: 0%;
+}
+
+.spot-form input[type="text"] {
+    width: calc(100% - 22px);
+    /* Adjust width to account for padding and border */
+    padding: 10px;
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.spot-form button[type="submit"] {
+    background-color: var(--primary);
+    color: var(--light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.spot-form button[type="submit"]:hover {
+    background-color: var(--quatrinary);
+}
+
+.homepageH2 {
+    margin-left: 43%;
 }

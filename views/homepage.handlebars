@@ -1,1 +1,17 @@
-<h2>The World Of Slinky</h2>
+<h2 class="homepageH2">The World Of Slinky</h2>
+<div class="slinkyDogimage">
+
+    <img src="{{this.assets/images/slinkydogtransparent.jpeg}}" alt="slinky dog">
+</div>
+<ul>
+    {{#each spots}}
+    <li>
+        <h2>{{this.spot_name}}</h2>
+        <p>{{this.description}}</p>
+        <!-- Display more spot details as needed -->
+    </li>
+    {{/each}}
+</ul>
+</body>
+
+</html>
