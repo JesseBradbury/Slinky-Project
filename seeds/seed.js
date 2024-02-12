@@ -2,7 +2,7 @@
 
 const sequelize = require('../config/connection');
 // Brings in the user model
-const { User } = require('../models');
+const { User, Spot, Wave } = require('../models');
 
 const userData = require('./userData.json');
 const spotData = require('./spotData.json');
