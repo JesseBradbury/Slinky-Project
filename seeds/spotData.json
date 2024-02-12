@@ -1,0 +1,20 @@
+[
+    {
+      "spot_name": "Chandler Mall",
+      "steps": 16,
+      "city": "Chandler",
+      "state": "AZ",
+      "location": "North West corner by Borders",
+      "description": "2 sets of 16 stairs leading down to the lower parkinglot.",
+      "user_id": 2
+    },
+    {
+        "spot_name": "Old Main",
+        "steps": 8,
+        "city": "Tempe",
+        "state": "AZ",
+        "location": "College and University",
+        "description": "Main staircase leading to Old Main. Watchout for students!",
+        "user_id": 1
+      }
+  ]
