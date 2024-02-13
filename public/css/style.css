@@ -47,6 +47,7 @@ body {
     border-radius: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
+    max-width: 1000px;
 }
 
 h1,
@@ -55,6 +56,10 @@ h3 {
     margin-left: 5px;
     font-family: 'Bauhaus Modern', sans-serif;
 
+}
+
+p {
+margin-bottom: auto;
 }
 
 
@@ -142,6 +147,7 @@ label {
 }
 
 input[type="text"],
+input[type="integer"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -232,7 +238,7 @@ button[type="submit"]:hover {
 .spotDetails-form {
     max-width: 1000px;
     /* Set maximum width for the form */
-    margin-left: 15%;
+    
     /* Center the form horizontally */
     padding: 20px;
     /* Add padding for spacing */
@@ -244,15 +250,20 @@ button[type="submit"]:hover {
 
 
 .wavesh2 {
-    margin-left: 40%;
+    /* margin-left: 40%; */
     /* Add margin to separate from form */
     color: var(--primary);
+    /* background-color: var(--quatrinary); */
     /* Adjust text color */
 }
 
 .waveDetail-p {
-    margin-left: 36%;
-    color: var(--primary)
+    /* margin-left: 36%; */
+    color: var(--primary);
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    margin: 4px;
+   
 }
 
 .noWave-p {
@@ -304,6 +315,7 @@ button[type="submit"]:hover {
     border: 1px solid var(--tertiary);
     border-radius: 5px;
     margin-top: 5px;
+    background-color: var(--light);
 }
 
 .btn-primary {
@@ -332,4 +344,9 @@ button[type="submit"]:hover {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+.spot-location {
+    font-weight: 600;
+    font-style: italic;
 }
