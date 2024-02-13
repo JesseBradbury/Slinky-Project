@@ -21,7 +21,7 @@ This is a exercise in using handlebars, express routers, object relational mappi
 This application requires using express, sequilize, leaflet, and mySQL2, use "npm i" to install the required dependencies. You can also seed the database to begin with our seeds.sql files using the command "npm run seed" 
 
 ## Usage:
-Invoke the express server with "node server.js". It will then allow you to send Read, Create, Update, and Delete requests to the available routes.   
+Invoke the express server with "node server.js". It will then allow you to access the site and start recording your slinky adventure!
 
 ![screenshot of app](assets/screenshots/ss1.png)
 
