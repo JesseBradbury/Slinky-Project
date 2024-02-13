@@ -1,6 +1,6 @@
 // This will handle our objects of users and other data. 
 const User = require('./User');
-const Spot = require('./Spot');
+const Spot = require('./spot');
 const Wave = require('./Wave');
 // User has many spots and spots belong to user.
 User.hasMany(Spot, { foreignKey: 'user_id' });
