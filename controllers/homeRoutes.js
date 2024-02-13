@@ -85,7 +85,7 @@ router.get('/spots', async (req, res) => {
     const dbSpotData = await Spot.findAll({
       include: [
         {
-          model: User,
+          model: user,
           attributes: ['id', 'user_name'],
         },
       ],
