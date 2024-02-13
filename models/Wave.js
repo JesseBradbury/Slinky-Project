@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize")
 const sequelize = require("../config/connection")
-const Spot = require('./Spot');
+const Spot = require('./spot');
 
 class Wave extends Model { }
 
