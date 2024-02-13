@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const User = require('./User');  // Import Wave model
+// const User = require('./User');  // Import Wave model
 // const spot = require('./Spot');
 
 class Spot extends Model { }
@@ -66,4 +66,3 @@ module.exports = Spot;
 //     foreignKey: 'user_id',
 // })
 
-module.exports = Spot;

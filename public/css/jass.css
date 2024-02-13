@@ -1,1 +1,5 @@
 /* This will be our jass file for our project. */
+
+#map {
+    height: 180px;
+}

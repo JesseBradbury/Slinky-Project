@@ -1,0 +1,30 @@
+[
+    {
+      "spot_id": 1,
+      "steps": 16,
+      "time": "15 Seconds!",
+      "comment": "Very cool spot! Had my fastest time on the lower staircase. :)",
+      "user_id": 2
+    },
+    {
+        "spot_id": 1,
+        "steps": 16,
+        "time": "13 Seconds!",
+        "comment": "Wow! Very fast steps, one of my fastest waves EVER!",
+        "user_id": 1
+      },
+      {
+        "spot_id": 2,
+        "steps": 8,
+        "time": "5 Seconds!",
+        "comment": "Classic spot, lots of people love to watch the slinky here!",
+        "user_id": 1
+      },
+      {
+        "spot_id": 2,
+        "steps": 7,
+        "time": "6 Seconds",
+        "comment": "My slinky cant make it down the last step :(",
+        "user_id": 2
+      }
+  ]

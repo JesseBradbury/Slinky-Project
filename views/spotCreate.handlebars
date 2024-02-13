@@ -1,31 +1,4 @@
 <div>
-    <h1 class="spot-Formh1">Slinky Spots</h1>
-    <div class="container">
-
-        {{#each spots}}
-        <div class="container card-spot">
-            <div class="row">
-                <div class="col-8">
-                    <h2>{{ spot_name }} - {{ steps }} steps! </h2>
-                    <h4>{{ city }}, {{ state }}</h4>
-                </div>
-                <div class="col-3">
-                    <button class="btn btn-primary btn-view-waves" onclick="window.location.href='/spots/{{id}}';">
-                        View Waves
-                    </button>
-                </div>
-            </div>
-            <p>{{ description }}</p>
-        </div>
-        {{/each}}
-
-        <button class="btn btn-primary btn-new-spot" onclick="window.location.href='/createspot';">
-            Submit a New Spot
-        </button>
-    </div>
-
-
-    {{!-- <div>
         <h2 class="spot-formh2">Add a New Spot</h2>
         <form class="form spot-form">
             <div class="form-group">
@@ -61,6 +34,4 @@
         {{/if}}
     </div>
 </div>
-<script src="/js/createSpot.js"></script> --}}
-
-<div id="map"></div>
+<script src="/js/createSpot.js"></script>
