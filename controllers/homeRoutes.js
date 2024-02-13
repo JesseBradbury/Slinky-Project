@@ -142,7 +142,7 @@ router.get('/spots/:id', withAuth, async (req, res) => {
 
     const spot = {
       ...dbSpotData.get({ plain: true }),
-      user: dbSpotData.User.get({ plain: true }),
+      user: dbSpotData.user.get({ plain: true }),
       waves: dbSpotData.waves.map((wave) => wave.get({ plain: true }))
     };
 
