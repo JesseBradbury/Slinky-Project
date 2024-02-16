@@ -149,7 +149,7 @@ router.get('/spots/:id', withAuth, async (req, res) => {
 
     console.log('spot:', spot);
 
-    res.render('spotDetails', { spot });
+    res.render('spotDetails', { spot, session: req.session });
 
   } catch (err) {
     res.status(500).json({ error: 'Internal Server Error' });
@@ -164,7 +164,7 @@ router.get('/createspot', withAuth, async (req, res) => {
   }
 
   try {
-    res.render('spotCreate')
+    res.render('spotCreate', { session: req.session })
   } catch (err) {
     res.status(500).json({ error: 'Internal Server Error' });
     console.log(err)
