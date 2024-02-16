@@ -6,7 +6,7 @@ const withAuth = require("../utils/auth")
 // This is the get route for / The homepage will render through handlebars.
 router.get("/", async (req, res) => {
   try {
-    res.render("homepage")
+    res.render("homepage", { session: req.session })
   } catch (err) {
     res.status(500).jason(err)
   }
@@ -61,7 +61,7 @@ router.get("/profile", withAuth, async (req, res) => {
 
 
     console.log(userData.get({ plain: true }));
-    res.render("profile", { userData: userData.get({ plain: true }) });
+    res.render("profile", { userData: userData.get({ plain: true }), session: req.session });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -94,7 +94,7 @@ router.get('/spots', async (req, res) => {
     );
 
     res.render('spots', {
-      spots,
+      spots, session: req.session 
       // loggedIn: req.session.loggedIn,
     });
 
@@ -170,5 +170,17 @@ router.get('/createspot', withAuth, async (req, res) => {
     console.log(err)
   }
 })
+
+router.get('/logout', (req, res) => {
+  // When the user logs out, destroy the session
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      // Redirect to the homepage after destroying the session
+      res.redirect('/');
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 module.exports = router
