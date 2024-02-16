@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// const User = require('./User');  // Import Wave model
+const User = require('./User');  // Import Wave model
 // const spot = require('./Spot');
 
 class Spot extends Model { }
@@ -54,15 +54,16 @@ Spot.init(
     }
 );
 
+Spot.belongsTo(User, {
+    foreignKey: 'user_id',
+})
+const Wave = require('./Wave');
+Spot.hasMany(Wave, {
+    foreignKey: 'spot_id',
+    onDelete: 'CASCADE',
+});
+
 module.exports = Spot;
 
-// const Wave = require('./Wave');
 
-// Spot.hasMany(Wave, {
-//     foreignKey: 'spot_id',
-//     onDelete: 'CASCADE',
-// });
-// Spot.belongsTo(User, {
-//     foreignKey: 'user_id',
-// })
 
