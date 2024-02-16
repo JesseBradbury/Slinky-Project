@@ -57,12 +57,11 @@ router.get("/profile", withAuth, async (req, res) => {
       return;
     }
 
-    // const userData = dbUserData.map((userData) => userData.get({ plain: true })
-    // );
+    console.log(userData)
 
 
-    console.log(userData);
-    res.render("profile", { userData });
+    console.log(userData.get({ plain: true }));
+    res.render("profile", { userData: userData.get({ plain: true }) });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -142,8 +141,10 @@ router.get('/spots/:id', withAuth, async (req, res) => {
 
     const spot = {
       ...dbSpotData.get({ plain: true }),
-      user: dbSpotData.user.get({ plain: true }),
-      waves: dbSpotData.waves.map((wave) => wave.get({ plain: true }))
+      // user: dbSpotData.User.get({ plain: true }),
+      // waves: dbSpotData.Waves.map((wave) => wave.get({ plain: true }))
+      user: dbSpotData.user ? dbSpotData.user.get({ plain: true }) : null,
+      waves: dbSpotData.waves.map((wave) => wave.get({ plain: true })),
     };
 
     console.log('spot:', spot);
