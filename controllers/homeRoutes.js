@@ -173,7 +173,7 @@ router.get('/createspot', withAuth, async (req, res) => {
 
 router.get('/logout', (req, res) => {
   // When the user logs out, destroy the session
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       // Redirect to the homepage after destroying the session
       res.redirect('/');
